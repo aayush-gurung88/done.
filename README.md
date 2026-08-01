@@ -1,16 +1,99 @@
-# React + Vite
+# done.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal daily productivity logger. One entry per day. Locked forever after midnight.
 
-Currently, two official plugins are available:
+## What is this?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+done. is a lightweight web application that helps developers and professionals answer one simple question every day —
+**"What did I actually do today?"**
 
-## React Compiler
+Users log into a clean calendar interface, write what they completed, and the entry is permanently locked after midnight — creating an honest, uneditable daily record of progress.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- One entry per day — focused and intentional
+- Entries locked after midnight — cannot be edited retroactively
+- Rich text editor with heading, bullet, and bold formatting
+- Monthly calendar view with visual indicators for logged days
+- Real streak counter based on consecutive days logged
+- Secure authentication — each user sees only their own entries
+- Motivational quote — refreshes every 10 hours
+- Live clock display
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React, Vite, Tailwind CSS |
+| Rich Text | TipTap Editor |
+| Routing | React Router |
+| Backend | Python, FastAPI |
+| Authentication | JWT, bcrypt |
+| Database | PostgreSQL |
+| ORM | SQLAlchemy |
+
+## Project Structure
+
+done./
+├── src/
+│ ├── components/
+│ │ └── Calendar.jsx
+│ ├── pages/
+│ │ ├── Login.jsx
+│ │ ├── Signup.jsx
+│ │ └── Landing.jsx
+│ ├── context/
+│ │ └── AuthContext.jsx
+│ └── main.jsx
+└── backend/
+└── app/
+├── main.py
+├── models.py
+├── schemas.py
+├── database.py
+├── auth.py
+└── routers/
+├── users.py
+└── entries.py
+
+
+## Getting Started
+
+### Prerequisites
+- Node.js
+- Python 3.10+
+- PostgreSQL
+
+### Frontend
+```bash
+npm install
+npm run dev
+
+
+
+### Backend
+Terminal 
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
+
+Environment Variables
+
+Create a .env file in the backend folder:
+
+DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/done
+SECRET_KEY=your-secret-key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+
+API Endpoints
+Method	Endpoint	      Description
+POST	/auth/register	  Register new user
+POST	/auth/token	      Login and get JWT token
+GET	    /entries	      Get all entries for logged in user
+POST	/entries	      Create new entry
+PUT	    /entries/{id}	  Update existing entry
