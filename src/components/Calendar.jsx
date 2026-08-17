@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 
-const API_URL = 'http://127.0.0.1:8000'
+const API_URL = 'https://done-2rvj.onrender.com'
 const today = new Date()
 
 function getAuthHeaders() {

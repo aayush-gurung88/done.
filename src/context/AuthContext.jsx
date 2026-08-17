@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 
 const AuthContext = createContext(null)
 const STORAGE_KEY = 'dev_log_auth_user'
-const API_URL = 'http://127.0.0.1:8000'
+const API_URL = 'https://done-2rvj.onrender.com'
 
 function getSavedUser() {
   const serialized = localStorage.getItem(STORAGE_KEY)
