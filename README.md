@@ -1,5 +1,11 @@
 # done.
 
+## Live Demo
+
+**Frontend:** https://done-lime-eight.vercel.app/
+
+**Backend API:** https://done-2rvj.onrender.com/docs
+
 A minimal daily productivity logger. One entry per day. Locked forever after midnight.
 
 ## What is this?
@@ -58,6 +64,8 @@ done./
 
 
 ## Getting Started
+
+The app is deployed and can be used directly without local setup via the Live Demo above.
 
 ### Prerequisites
 - Node.js

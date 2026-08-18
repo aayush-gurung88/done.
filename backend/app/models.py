@@ -26,3 +26,5 @@ class Entry(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
     owner = relationship("User", back_populates="entries") 
+
+    
